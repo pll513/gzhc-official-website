@@ -1,0 +1,8 @@
+.gitignore
+.idea/*
+node_modules/*
+public/*
+/*.html
+views/*/css/*.less
+views/*/css/*.sass
+views/*/css/*.scss
