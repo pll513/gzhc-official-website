@@ -1,0 +1,479 @@
+@import "skin";
+
+p {
+  margin: 0;
+}
+
+main {
+  overflow: hidden;
+}
+
+.banner {
+  position: relative;
+  z-index: 1;
+  height: 446px;
+  overflow: hidden;
+  img:first-child {
+    top: 0;
+    left: -360px;
+    z-index: -1;
+    height: 446px;
+  }
+  h1, p, img, nav {
+    position: absolute;
+  }
+  h1 {
+    top: 150px;
+    left: 69px;
+    line-height: 65px;
+  }
+  p.f-fs-24 {
+    top: 222px;
+    left: 69px;
+    line-height: 33px;
+    letter-spacing: 6.23px;
+  }
+  p.f-fs-16 {
+    top: 295px;
+    left: 69px;
+    line-height: 22px;
+  }
+  img[src*="logo-circle"] {
+    top: 168px;
+    left: 773px;
+    width: 193px;
+  }
+  img[src*="patient"] {
+    top: 147px;
+    left: 727px;
+    width: 72.7px;
+  }
+  img[src*="doctor"] {
+    top: 205.2px;
+    left: 965.2px;
+    width: 72.3px;
+  }
+  img[src*="hospital"] {
+    top: 349px;
+    left: 777px;
+    width: 68.3px;
+  }
+}
+
+.btn-info {
+  width: 156px;
+  height: 40px;
+  line-height: 22px;
+  font-size: 16px;
+}
+
+.intelligence, .hicare, .cloud, .hifond, .speed {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  overflow: visible;
+  h2, p, a, img, ul {
+    position: absolute;
+  }
+  h2 {
+    font-size: 40px;
+    height: 56px;
+    line-height: 56px;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      bottom: -15px;
+      left: 0;
+      background: @grey2;
+    }
+    + p {
+      font-size: 20px;
+      height: 28px;
+      line-height: 28px;
+      color: @grey2;
+    }
+  }
+  ul {
+    li {
+      height: 32px;
+      line-height: 32px;
+      font-size: 16px;
+    }
+  }
+}
+
+.hicare, .hifond {
+  background: #fafafa;
+}
+
+.intelligence {
+  z-index: 2;
+  h2, p, a, .figure-wrap {
+    left: 755px;
+  }
+  h2 {
+    top: 102px;
+    + p {
+      top: 186px;
+    }
+  }
+  a {
+    top: 416px;
+  }
+  .figure-wrap {
+    position: absolute;
+    top: 272px;
+  }
+  .m-figure {
+    float: left;
+    + .m-figure {
+      margin-left: 84.5px;
+    }
+    img {
+      height: 47px;
+    }
+  }
+  img[src="/images/video.png"] {
+    top: 95px;
+    left: 67px;
+    width: 600px;
+  }
+}
+
+.hicare {
+  z-index: 3;
+  h2, p, a {
+    left: 166px;
+  }
+  h2 {
+    top: 77px;
+    + p {
+      top: 165px;
+      + p {
+        top: 214px;
+        width: 520px;
+        line-height: 32px;
+      }
+    }
+  }
+  a {
+    top: 294px;
+  }
+  img[src="/images/grid-lines.png"] {
+    top: 336px;
+    left: 65px;
+    width: 668px;
+  }
+  img[src="/images/blood-pressure2.png"] {
+    top: 539px;
+    left: 87px;
+    width: 60px;
+  }
+  img[src="/images/blood-pressure1.png"] {
+    top: 369px;
+    left: 213px;
+    width: 93px;
+  }
+  img[src="/images/blood-sugar.png"] {
+    top: 479px;
+    left: 386px;
+    width: 90px;
+  }
+  img[src="/images/heart-rate1.png"] {
+    top: 324px;
+    left: 586px;
+    width: 91px;
+  }
+  img[src="/images/heart-rate2.png"] {
+    top: 556px;
+    left: 690px;
+    width: 70px;
+  }
+  img[src="/images/doctor-pad.png"] {
+    top: -23px;
+    left: 643px;
+    width: 622px;
+  }
+}
+
+.cloud {
+  z-index: 4;
+  background: #fff;
+  h2, p, a, ul {
+    left: 847px;
+  }
+  h2 {
+    top: 158px;
+    + p {
+      top: 242px;
+    }
+  }
+  ul {
+    top: 304px;
+  }
+  a {
+    top: 430px;
+  }
+  img[src="/images/pad.png"] {
+    top: 263px;
+    left: 119px;
+    width: 499px;
+  }
+  img[src="/images/circle.png"] {
+    top: 352px;
+    left: 20px;
+    width: 23px;
+  }
+  img[src="/images/circles.png"] {
+    top: 322px;
+    left: 530px;
+    width: 129px;
+  }
+  img[src="/images/notice.png"] {
+    top: 398px;
+    left: 66px;
+    width: 91px;
+  }
+  img[src="/images/daily-paper.png"] {
+    top: 229px;
+    left: 66px;
+    width: 91px;
+  }
+  img[src="/images/connection.png"] {
+    top: 136px;
+    left: 206px;
+    width: 87px;
+  }
+  img[src="/images/meeting-assistant.png"] {
+    top: 134px;
+    left: 388px;
+    width: 77px;
+  }
+  img[src="/images/consultation.png"] {
+    top: 186px;
+    left: 530px;
+    width: 75px;
+  }
+}
+
+.hifond {
+  z-index: 5;
+  h2, p, a, ul {
+    left: 66px;
+  }
+  h2 {
+    top: 86px;
+    + p {
+      top: 170px;
+    }
+  }
+  ul {
+    top: 232px;
+  }
+  a {
+    top: 419px;
+  }
+  img[src="/images/hifond1.png"] {
+    top: 112px;
+    left: 474px;
+    width: 434px;
+  }
+  img[src="/images/hifond2.png"] {
+    top: 112px;
+    left: 1006px;
+    width: 142px;
+  }
+}
+
+.speed {
+  z-index: 6;
+  h2, ul, p, a {
+    left: 802px;
+  }
+  h2 {
+    top: 141px;
+    + p {
+      top: 225px;
+    }
+  }
+  ul {
+    top: 287px;
+  }
+  p.f-fs-16 {
+    top: 452px;
+    line-height: 22px;
+  }
+  a {
+    top: 519px;
+  }
+  img[src="/images/cloud-collection.png"] {
+    top: 260px;
+    left: -400px;
+    width: 778px;
+  }
+  img[src="/images/coupon.png"] {
+    top: 96px;
+    left: 156px;
+    width: 91px;
+  }
+  img[src="/images/member.png"] {
+    top: 141px;
+    left: 357px;
+    width: 91px;
+  }
+  img[src="/images/collection.png"] {
+    top: 283px;
+    left: 492px;
+    width: 91px;
+  }
+  img[src="/images/payment-code.png"] {
+    top: 455px;
+    left: 452px;
+    width: 91px;
+  }
+}
+
+.join {
+  position: relative;
+  z-index: 7;
+  height: 354px;
+  background: linear-gradient(-52deg, #3AECCF 0%, #05C0FC 97%, #04BEFD 100%);
+  p, div {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  p {
+    top: 204px;
+    line-height: 42px;
+    font-size: 30px;
+    &:first-child {
+      top: 68px;
+    }
+  }
+  .g-container {
+    > div {
+      top: 267px;
+      > .btn {
+        width: 240px;
+      }
+    }
+    > p:first-child + div {
+      top: 125px;
+      font-size: 0;
+      > .btn {
+        width: 156px;
+      }
+    }
+  }
+  .btn {
+    height: 44px;
+    line-height: 22px;
+    padding: 10px 0;
+    + .btn {
+      margin-left: 37px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-fixed-top {
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 88px;
+    .navbar-header {
+      position: relative;
+      padding: 24px 0;
+    }
+    img[src*="logo"] {
+      position: absolute;
+      top: 12px;
+      left: 21px;
+      width: 87px;
+    }
+    .f-fs-24 {
+      position: absolute;
+      right: 20%;
+      left: 20%;
+      margin: auto;
+      display: inline-block;
+      width: 60%;
+      line-height: 40px;
+      text-align: center;
+    }
+    .navbar-nav {
+      position: fixed;
+      z-index: 9;
+      top: 88px;
+      right: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      > li {
+        margin: 0;
+        > a {
+          padding-right: 30px;
+          text-align: right;
+          font-size: 28px;
+          line-height: 40px;
+        }
+      }
+    }
+    .navbar-toggle {
+      position: absolute;
+      top: 31px;
+      right: 30px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      .icon-bar {
+        & + .icon-bar {
+          margin-top: 8px;
+        }
+        width: 30px;
+        height: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background: #989898;
+      }
+    }
+
+  }
+
+  .join {
+    .f-fs-30 {
+      font-size: 34px;
+    }
+  }
+
+  .btn-info {
+    width: 378px;
+    height: 80px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    line-height: 48px;
+    font-size: 34px;
+
+  }
+}
+
+@media (max-width: 550px) {
+  .navbar-fixed-top {
+    .f-fs-24 {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .btn-info {
+    width: 90%;
+    min-width: 280px;
+  }
+}

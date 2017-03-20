@@ -1,0 +1,276 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+.g-container {
+  position: relative !important;
+  width: 1200px;
+  margin: auto;
+}
+.g-container:before,
+.g-container:after {
+  content: "";
+  display: table;
+}
+.m-figure {
+  position: relative;
+  width: 64px;
+  height: 103px;
+}
+.m-figure__figure {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+.m-figure__figure-cap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+}
+.u-btn {
+  display: inline-block;
+  padding: 10px 0;
+  border: 1px solid #e0e0e0;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+  width: 119px;
+  height: 40px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: center;
+  background: #fff;
+  color: #666;
+}
+.u-btn:hover {
+  color: #666;
+}
+.u-btn.active {
+  color: #fff;
+  border: 0;
+  background: linear-gradient(-52deg, #3AECCF 0%, #05C0FC 97%, #04BEFD 100%);
+}
+.u-link {
+  position: relative;
+  background: transparent;
+  border: 0;
+  color: #333;
+  font-size: 16px;
+}
+.u-link.active {
+  color: #4cb6ac !important;
+}
+.u-link.active:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 30px;
+  height: 3px;
+  background: #4cb6ac;
+  content: "";
+}
+.u-link-arrow {
+  position: relative;
+  color: #f58017;
+  font-size: 16px;
+  line-height: 19px;
+}
+.u-link-arrow:hover {
+  color: #f58017;
+}
+.u-link-arrow:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -4.5px;
+  right: -10px;
+  border: 2px solid transparent;
+  border-top-color: #f58017;
+  border-right-color: #f58017;
+  width: 9px;
+  height: 9px;
+  content: "";
+  -webkit-transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
+  -moz-transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
+  -ms-transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
+  -o-transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
+  transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
+}
+@media (max-width: 767px) {
+  .g-container {
+    width: 100%;
+  }
+}
+.f-color-default {
+  color: #666;
+}
+.f-color-primary {
+  color: #333;
+}
+.f-color-warn {
+  color: #f58017;
+}
+.f-color-info {
+  color: #4cb6ac;
+}
+.f-color-white {
+  color: #fff;
+}
+.f-fs-14 {
+  font-size: 14px;
+}
+.f-fs-16 {
+  font-size: 16px;
+}
+.f-fs-18 {
+  font-size: 18px;
+}
+.f-fs-20 {
+  font-size: 20px;
+}
+.f-fs-22 {
+  font-size: 22px;
+}
+.f-fs-24 {
+  font-size: 24px;
+}
+.f-fs-28 {
+  font-size: 28px;
+}
+.f-fs-30 {
+  font-size: 30px;
+}
+.f-fs-34 {
+  font-size: 34px;
+}
+.f-fs-40 {
+  font-size: 40px;
+}
+.f-fs-46 {
+  font-size: 46px;
+}
+/**
+ * 页面公共样式
+ */
+.navbar-fixed-top {
+  border: 0;
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+.navbar-fixed-top img[src*="logo"] {
+  position: absolute;
+  top: 8px;
+  left: 50px;
+  width: 71.4px;
+}
+.navbar-fixed-top .navbar-nav {
+  position: absolute;
+  right: 50px;
+}
+.navbar-fixed-top .navbar-nav > li {
+  margin: 0 0 0 62px;
+}
+.navbar-fixed-top .navbar-nav > li:first-child {
+  margin-left: 0;
+}
+.navbar-fixed-top .navbar-nav > li > a {
+  padding: 20px 0;
+  line-height: 20px;
+}
+.navbar-fixed-top .navbar-collapse {
+  border: 0;
+}
+.navbar-fixed-top .f-fs-24 {
+  display: none;
+}
+.footer {
+  position: relative;
+  height: 354px;
+}
+.footer .product,
+.footer .gzhc,
+.footer .contact,
+.footer .follow {
+  position: absolute;
+  top: 67px;
+}
+.footer ul {
+  margin-top: 23px;
+}
+.footer img {
+  margin-top: 18px;
+  width: 110px;
+}
+.footer img + img {
+  margin-left: 10px;
+}
+.footer .product {
+  left: 83px;
+}
+.footer .gzhc {
+  left: 291px;
+}
+.footer .contact {
+  left: 503px;
+}
+.footer .follow {
+  font-size: 0;
+  left: 891px;
+}
+.footer .contact p {
+  display: inline-block;
+  width: 235px;
+  vertical-align: top;
+}
+.footer h4 {
+  margin: 0;
+  height: 22px;
+  line-height: 22px;
+  font-size: 16px;
+  color: #333;
+}
+.footer li {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #666;
+}
+.footer li > a {
+  color: #666;
+}
+hr {
+  position: absolute;
+  top: 292px;
+  left: 50px;
+  margin: 0;
+  width: 1100px;
+  height: 1px;
+  border: 0;
+  background: #e6e6e6;
+}
+hr + p {
+  position: absolute;
+  top: 313px;
+  left: 176px;
+  width: 858px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}

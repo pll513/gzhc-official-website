@@ -1,0 +1,97 @@
+@import "skin";
+
+.main {
+  height: 741px;
+  background: #fafafa;
+  h2 {
+    position: absolute;
+    top: 196px;
+    left: 151px;
+    width: 118px;
+    height: 42px;
+    line-height: 42px;
+    letter-spacing: -0.72px;
+    + p {
+      position: absolute;
+      top: 215px;
+      left: 279px;
+    }
+  }
+  img[src="/images/dots-china.png"] {
+    position: absolute;
+    top: 70px;
+    left: 200px;
+    height: 650px;
+  }
+  .nav {
+    position: absolute;
+    top: 204px;
+    left: 0;
+    &:after {
+      position: absolute;
+      top: -14px;
+      left: 122px;
+      width: 1px;
+      height: 360px;
+      content: "";
+      background: #e2e2e2;
+    }
+    li {
+      + li {
+        margin-top: 22.5px;
+      }
+    }
+    .u-btn {
+      padding: 6px 0;
+      border: 0;
+      width: 100px;
+      height: 32px;
+      background: transparent;
+      &.active {
+        background: linear-gradient(-52deg, #3AECCF 0%, #05C0FC 97%, #04BEFD 100%);
+      }
+    }
+  }
+  .g-container > ul {
+    position: absolute;
+    top: 195px;
+    right: 14px;
+    text-align: right;
+    li + li {
+      margin-top: 44.7px;
+    }
+    p:first-child {
+      height: 38px;
+      font-size: 0;
+      > span {
+        line-height: 36px;
+        font-size: 30px;
+        color: #f57f17;
+        letter-spacing: -0.72px;
+      }
+    }
+    p + p {
+      height: 20px;
+      line-height: 20px;
+      font-size: 14px;
+      color: #333;
+      letter-spacing: -0.34px;
+    }
+  }
+}
+#arrow-prev, #arrow-next {
+  position: absolute;
+  top: 407px;
+  width: 30px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#arrow-prev {
+  left: 151px;
+}
+
+#arrow-next {
+  left: 881px;
+}
