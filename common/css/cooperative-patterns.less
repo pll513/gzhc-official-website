@@ -1,5 +1,5 @@
 @import "skin";
-
+@sliderPageCnt: 4;
 .main {
   height: 741px;
   background: #fafafa;
@@ -19,9 +19,9 @@
   }
   img[src="/images/dots-china.png"] {
     position: absolute;
-    top: 70px;
-    left: 200px;
-    height: 650px;
+    top: 81px;
+    left: 189px;
+    width: 759px;
   }
   .nav {
     position: absolute;
@@ -79,7 +79,8 @@
     }
   }
 }
-#arrow-prev, #arrow-next {
+
+#arrow-left, #arrow-right {
   position: absolute;
   top: 407px;
   width: 30px;
@@ -87,11 +88,44 @@
     cursor: pointer;
   }
 }
-
-#arrow-prev {
+#arrow-left {
   left: 151px;
 }
-
-#arrow-next {
+#arrow-right {
   left: 881px;
+}
+
+.slider {
+  position: absolute;
+  top: 285px;
+  left: 222px;
+  width: 620px;
+  height: 240px;
+  overflow: hidden;
+}
+.slider__wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 620px * @sliderPageCnt;
+  height: 100%;
+  font-size: 0;
+}
+.slider__page {
+  display: inline-block;
+  width: 620px;
+  height: 240px;
+  .m-figure {
+    float: left;
+    margin-top: 35px;
+    width: 124px;
+    height: 85px;
+  }
+  .m-figure__figure-cap {
+    height: 17px;
+    line-height: 17px;
+    font-size: 12px;
+    letter-spacing: -0.29px;
+    color: #333;
+  }
 }
