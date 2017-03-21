@@ -1,0 +1,3 @@
+`gulp`
+
+`node bin/www`
