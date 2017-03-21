@@ -6,3 +6,5 @@ bootstrap/node_modules/*
 views/*/css/*.less
 views/*/css/*.sass
 views/*/css/*.scss
+public/css/*.css
+common/css/*.css
