@@ -12,25 +12,24 @@ gulp.task('less', function () {
 });
 
 gulp.task('css-bundle', ['less'], function () {
-  return gulp.src(['bootstrap/dist/css/bootstrap.css', 'common/css/common.css', 'common/css/base.css'])
+  return gulp.src(['common/css/normalize.css', 'common/css/base.css', 'common/css/common.css'])
     .pipe(concatCSS('bundle.css'))
     .pipe(gulp.dest('common/css'));
 });
 
 gulp.task('css-isolate', ['css-bundle'],function () {
-  return gulp.src(['common/css/index.css', 'common/css/events.css', 'common/css/introduction.css', 'common/css/cooperative-patterns.css'])
-    .pipe(less())
+  return gulp.src(['common/css/index.css', 'common/css/index-mobile.css','common/css/events.css', 'common/css/introduction.css', 'common/css/cooperative-patterns.css'])
     .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('css-minify', ['css-isolate'], function () {
   return gulp.src(['common/css/*.css'])
-    .pipe(minifyCSS())
+    // .pipe(minifyCSS())
     .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('default', function () {
-  var cssWatcher = gulp.watch(['common/css/*.less', 'bootstrap/dist/css/bootstrap.css'], ['less', 'css-bundle', 'css-isolate', 'css-minify']);
+  var cssWatcher = gulp.watch(['common/css/*.less'], ['less', 'css-bundle', 'css-isolate', 'css-minify']);
   cssWatcher.on('change', function (event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });

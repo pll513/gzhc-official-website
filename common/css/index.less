@@ -1,4 +1,4 @@
-@import "skin";
+@import "variable";
 
 p {
   margin: 0;
@@ -8,17 +8,18 @@ main {
   overflow: hidden;
 }
 
+#banner-bg {
+  top: 0;
+  left: -360px;
+  z-index: -1;
+  height: 446px;
+}
+
 .banner {
   position: relative;
   z-index: 1;
   height: 446px;
   overflow: hidden;
-  img:first-child {
-    top: 0;
-    left: -360px;
-    z-index: -1;
-    height: 446px;
-  }
   h1, p, img, nav {
     position: absolute;
   }
@@ -41,30 +42,29 @@ main {
   img[src*="logo-circle"] {
     top: 168px;
     left: 773px;
-    width: 193px;
   }
   img[src*="patient"] {
     top: 147px;
     left: 727px;
-    width: 72.7px;
   }
   img[src*="doctor"] {
     top: 205.2px;
     left: 965.2px;
-    width: 72.3px;
   }
   img[src*="hospital"] {
     top: 349px;
     left: 777px;
-    width: 68.3px;
   }
 }
 
-.btn-info {
+.u-btn-info {
   width: 156px;
-  height: 40px;
+  height: 42px;
   line-height: 22px;
-  font-size: 16px;
+}
+
+.punctuation {
+  display: none;
 }
 
 .intelligence, .hicare, .cloud, .hifond, .speed {
@@ -72,7 +72,7 @@ main {
   height: 600px;
   width: 100%;
   overflow: visible;
-  h2, p, a, img, ul {
+  h2, p, a, img, .para-wrap {
     position: absolute;
   }
   h2 {
@@ -89,14 +89,15 @@ main {
       background: @grey2;
     }
     + p {
-      font-size: 20px;
       height: 28px;
       line-height: 28px;
+      font-size: 20px;
       color: @grey2;
     }
   }
-  ul {
-    li {
+  .para-wrap {
+    > p {
+      position: static;
       height: 32px;
       line-height: 32px;
       font-size: 16px;
@@ -125,12 +126,15 @@ main {
   .figure-wrap {
     position: absolute;
     top: 272px;
+    width: 444px;
+  }
+  .g-cell {
+    width: @four-over-twelve;
+
   }
   .m-figure {
-    float: left;
-    + .m-figure {
-      margin-left: 84.5px;
-    }
+    margin: 0;
+    width: 64px;
     img {
       height: 47px;
     }
@@ -138,7 +142,6 @@ main {
   img[src="/images/video.png"] {
     top: 95px;
     left: 67px;
-    width: 600px;
   }
 }
 
@@ -164,44 +167,37 @@ main {
   img[src="/images/grid-lines.png"] {
     top: 336px;
     left: 65px;
-    width: 668px;
   }
   img[src="/images/blood-pressure2.png"] {
     top: 539px;
     left: 87px;
-    width: 60px;
   }
   img[src="/images/blood-pressure1.png"] {
     top: 369px;
     left: 213px;
-    width: 93px;
   }
   img[src="/images/blood-sugar.png"] {
     top: 479px;
     left: 386px;
-    width: 90px;
   }
   img[src="/images/heart-rate1.png"] {
     top: 324px;
     left: 586px;
-    width: 91px;
   }
   img[src="/images/heart-rate2.png"] {
     top: 556px;
     left: 690px;
-    width: 70px;
   }
   img[src="/images/doctor-pad.png"] {
     top: -23px;
     left: 643px;
-    width: 622px;
   }
 }
 
 .cloud {
   z-index: 4;
   background: #fff;
-  h2, p, a, ul {
+  h2, p, a, .para-wrap {
     left: 847px;
   }
   h2 {
@@ -210,7 +206,7 @@ main {
       top: 242px;
     }
   }
-  ul {
+  .para-wrap {
     top: 304px;
   }
   a {
@@ -219,48 +215,40 @@ main {
   img[src="/images/pad.png"] {
     top: 263px;
     left: 119px;
-    width: 499px;
   }
   img[src="/images/circle.png"] {
     top: 352px;
     left: 20px;
-    width: 23px;
   }
   img[src="/images/circles.png"] {
     top: 322px;
     left: 530px;
-    width: 129px;
   }
   img[src="/images/notice.png"] {
     top: 398px;
     left: 66px;
-    width: 91px;
   }
   img[src="/images/daily-paper.png"] {
     top: 229px;
     left: 66px;
-    width: 91px;
   }
   img[src="/images/connection.png"] {
     top: 136px;
     left: 206px;
-    width: 87px;
   }
   img[src="/images/meeting-assistant.png"] {
     top: 134px;
     left: 388px;
-    width: 77px;
   }
   img[src="/images/consultation.png"] {
     top: 186px;
     left: 530px;
-    width: 75px;
   }
 }
 
 .hifond {
   z-index: 5;
-  h2, p, a, ul {
+  h2, p, a, .para-wrap {
     left: 66px;
   }
   h2 {
@@ -269,7 +257,7 @@ main {
       top: 170px;
     }
   }
-  ul {
+  .para-wrap {
     top: 232px;
   }
   a {
@@ -278,18 +266,16 @@ main {
   img[src="/images/hifond1.png"] {
     top: 112px;
     left: 474px;
-    width: 434px;
   }
   img[src="/images/hifond2.png"] {
     top: 112px;
     left: 1006px;
-    width: 142px;
   }
 }
 
 .speed {
   z-index: 6;
-  h2, ul, p, a {
+  h2, p, a, .para-wrap {
     left: 802px;
   }
   h2 {
@@ -298,12 +284,13 @@ main {
       top: 225px;
     }
   }
-  ul {
+  .para-wrap {
     top: 287px;
-  }
-  p.f-fs-16 {
-    top: 452px;
-    line-height: 22px;
+    & + p {
+      top: 452px;
+      line-height: 22px;
+      font-size: 16px;
+    }
   }
   a {
     top: 519px;
@@ -311,27 +298,22 @@ main {
   img[src="/images/cloud-collection.png"] {
     top: 240px;
     left: -320px;
-    width: 777px;
   }
   img[src="/images/coupon.png"] {
     top: 96px;
     left: 156px;
-    width: 91px;
   }
   img[src="/images/member.png"] {
     top: 141px;
     left: 357px;
-    width: 91px;
   }
   img[src="/images/collection.png"] {
     top: 283px;
     left: 492px;
-    width: 91px;
   }
   img[src="/images/payment-code.png"] {
     top: 455px;
     left: 452px;
-    width: 91px;
   }
 }
 
@@ -356,23 +338,23 @@ main {
   .g-container {
     > div {
       top: 267px;
-      > .btn {
+      > .u-btn {
         width: 240px;
       }
     }
     > p:first-child + div {
       top: 125px;
       font-size: 0;
-      > .btn {
+      > .u-btn {
         width: 156px;
       }
     }
   }
-  .btn {
+  .u-btn {
     height: 44px;
     line-height: 22px;
     padding: 10px 0;
-    + .btn {
+    + .u-btn {
       margin-left: 37px;
     }
   }
@@ -392,7 +374,6 @@ main {
       position: absolute;
       top: 12px;
       left: 21px;
-      width: 87px;
     }
     .f-fs-24 {
       position: absolute;
@@ -451,7 +432,7 @@ main {
     }
   }
 
-  .btn-info {
+  .u-btn {
     width: 378px;
     height: 80px;
     -webkit-border-radius: 10px;
@@ -472,7 +453,7 @@ main {
 }
 
 @media (max-width: 420px) {
-  .btn-info {
+  .u-btn {
     width: 90%;
     min-width: 280px;
   }

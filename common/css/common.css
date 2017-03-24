@@ -1,3 +1,11 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: PingFangSC-Regular, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
 ul {
   list-style: none;
   padding: 0;
@@ -10,6 +18,10 @@ h5,
 h6,
 p {
   margin: 0;
+  font-weight: 400;
+}
+a {
+  text-decoration: none;
 }
 .g-container {
   position: relative !important;
@@ -21,8 +33,23 @@ p {
   content: "";
   display: table;
 }
+.g-row {
+  padding: 0;
+}
+.g-row:before,
+.g-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.g-cell {
+  float: left;
+  width: 100%;
+}
 .m-figure {
   position: relative;
+  display: inline-block;
+  margin: 0;
   width: 64px;
   height: 103px;
 }
@@ -54,6 +81,7 @@ p {
   line-height: 20px;
   font-size: 14px;
   text-align: center;
+  vertical-align: middle;
   background: #fff;
   color: #666;
 }
@@ -65,10 +93,46 @@ p {
   border: 0;
   background: linear-gradient(-52deg, #3AECCF 0%, #05C0FC 97%, #04BEFD 100%);
 }
-.u-link {
+.u-btn-info {
+  border-color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+}
+.u-btn-info:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.u-nav-toggle {
   position: relative;
   background: transparent;
+  padding: 0;
   border: 0;
+}
+.u-nav-toggle__bar {
+  display: block;
+  width: 30px;
+  height: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background: #989898;
+}
+.u-nav-toggle__bar + .u-nav-toggle__bar {
+  margin-top: 7px;
+}
+.u-link {
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  padding: 20px 0;
+  border: 0;
+  height: 60px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
   color: #333;
   font-size: 16px;
   outline: 0;
@@ -87,11 +151,16 @@ p {
   background: #4cb6ac;
   content: "";
 }
+.u-link:hover {
+  color: #4cb6ac;
+}
 .u-link-arrow {
   position: relative;
+  padding: 0 6px 0 0;
+  height: 20px;
+  line-height: 20px;
   color: #f58017;
   font-size: 16px;
-  line-height: 19px;
 }
 .u-link-arrow:hover {
   color: #f58017;
@@ -100,23 +169,18 @@ p {
   position: absolute;
   top: 50%;
   margin-top: -4.5px;
-  right: -10px;
-  border: 2px solid transparent;
+  right: -3px;
+  border: 1px solid transparent;
   border-top-color: #f58017;
   border-right-color: #f58017;
-  width: 9px;
-  height: 9px;
+  width: 6px;
+  height: 6px;
   content: "";
   -webkit-transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
   -moz-transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
   -ms-transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
   -o-transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
   transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
-}
-@media (max-width: 767px) {
-  .g-container {
-    width: 100%;
-  }
 }
 .f-color-default {
   color: #666;
@@ -166,41 +230,51 @@ p {
 .f-fs-46 {
   font-size: 46px;
 }
+.f-tac {
+  text-align: center;
+}
 /**
  * 页面公共样式
  */
-.navbar-fixed-top {
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 9;
   border: 0;
+  width: 100%;
   height: 60px;
   background: #fff;
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 }
-.navbar-fixed-top img[src*="logo"] {
+.header .logo-wrap {
   position: absolute;
   top: 8px;
   left: 50px;
+}
+.header .logo-wrap img {
   width: 71.4px;
 }
-.navbar-fixed-top .navbar-nav {
+.header .nav {
   position: absolute;
+  top: 0;
   right: 50px;
+  padding: 0;
 }
-.navbar-fixed-top .navbar-nav > li {
-  margin: 0 0 0 62px;
+.header .nav > a {
+  margin-left: 62px;
 }
-.navbar-fixed-top .navbar-nav > li:first-child {
-  margin-left: 0;
+.header .nav > a:first-child {
+  margin: 0;
 }
-.navbar-fixed-top .navbar-nav > li > a {
-  padding: 20px 0;
-  line-height: 20px;
+.header .u-nav-toggle {
+  display: none;
+  position: absolute;
+  top: 17px;
+  right: 30px;
 }
-.navbar-fixed-top .navbar-collapse {
-  border: 0;
-}
-.navbar-fixed-top .f-fs-24 {
+.header .f-fs-24 {
   display: none;
 }
 .footer {

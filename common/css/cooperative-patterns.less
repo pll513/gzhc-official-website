@@ -1,4 +1,4 @@
-@import "skin";
+@import "variable";
 @sliderPageCnt: 4;
 .main {
   height: 741px;
@@ -10,11 +10,15 @@
     width: 118px;
     height: 42px;
     line-height: 42px;
+    font-size: 30px;
     letter-spacing: -0.72px;
     + p {
       position: absolute;
       top: 215px;
       left: 279px;
+      height: 18px;
+      line-height: 18px;
+      font-size: 12px;
     }
   }
   img[src="/images/dots-china.png"] {
@@ -66,6 +70,8 @@
       > span {
         line-height: 36px;
         font-size: 30px;
+        font-family: SFUIText-Light, sans-serif;
+        font-weight: 300;
         color: #f57f17;
         letter-spacing: -0.72px;
       }
@@ -128,4 +134,8 @@
     letter-spacing: -0.29px;
     color: #333;
   }
+}
+
+.m-figure {
+  margin: 0;
 }

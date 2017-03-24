@@ -156,6 +156,7 @@
           if (originLeft + step <= newLeft) {
             ele.style.left = (originLeft = newLeft) + 'px';
             isSliding = false;
+            clearTimeout(timerSlider);
           } else {
             ele.style.left = (originLeft += step) + 'px';
             timerSlider = setTimeout(move, INTERVAL);
@@ -166,6 +167,7 @@
           if (originLeft + step >= newLeft) {
             ele.style.left = (originLeft = newLeft) + 'px';
             isSliding = false;
+            clearTimeout(timerSlider);
           } else {
             ele.style.left = (originLeft += step) + 'px';
             timerSlider = setTimeout(move, INTERVAL);
@@ -179,6 +181,7 @@
           if (originLeft + step <= newLeft) {
             ele.style.left = (originLeft = newLeft) + 'px';
             isSliding = false;
+            clearTimeout(timerSlider);
           } else {
             ele.style.left = (originLeft += step) + 'px';
             timerSlider = setTimeout(move, INTERVAL);
@@ -190,6 +193,7 @@
           if (originLeft + step >= newLeft) {
             ele.style.left = (originLeft = newLeft) + 'px';
             isSliding = false;
+            clearTimeout(timerSlider);
           } else {
             ele.style.left = (originLeft += step) + 'px';
             timerSlider = setTimeout(move, INTERVAL);

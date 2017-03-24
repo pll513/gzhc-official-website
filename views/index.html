@@ -4,39 +4,40 @@
   <meta charset="UTF-8">
   <title>海鹚首页</title>
   <link rel="stylesheet" href="/css/bundle.css">
-  <link rel="stylesheet" href="/css/index.css">
+  <link id="index-css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.js"></script>
+  <script src="/js/respond.js"></script>
+  <![endif]-->
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<header class="header">
   <div class="g-container">
-    <div class="navbar-header">
-      <img src="/images/logo.png" alt="海鹚logo">
+    <div>
+      <a class="logo-wrap" href="/"><img src="/images/logo.png" alt="首页"></a>
       <span class="f-fs-24 f-color-primary">广州海鹚网络科技有限公司</span>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true"
-              aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="u-nav-toggle">
+        <span class="u-nav-toggle__bar"></span>
+        <span class="u-nav-toggle__bar"></span>
+        <span class="u-nav-toggle__bar"></span>
       </button>
     </div>
-    <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a class="u-link" href="/">产品与服务</a></li>
-        <li><a class="u-link" href="/cooperative-patterns">合作案例</a></li>
-        <li><a class="u-link" href="/introduction">走进海鹚</a></li>
-        <li><a class="u-link" href="/">加入我们</a></li>
-      </ul>
-    </div>
+    <nav class="nav">
+      <a class="u-link" href="javascript:void(0)">产品与服务</a>
+      <a class="u-link" href="/cooperation/wisdom-hospital">合作案例</a>
+      <a class="u-link" href="/introduction">走进海鹚</a>
+      <a class="u-link" href="/">加入我们</a>
+    </nav>
   </div>
-</nav>
+</header>
+</header>
 
 <main>
   
-  <section class="banner f-color-primary">
+  <section id="banner" class="banner f-color-primary">
     <div class="g-container">
-      <img src="/images/banner-bg-lg.jpg">
+      <img id="banner-bg" src="/images/banner-bg-lg.jpg">
       <h1 class="f-fs-46 f-color-warn">海鹚，让医疗变得温暖</h1>
       <p class="f-fs-24 f-color-info">全方位医疗平台服务商</p>
       <!--<nav>-->
@@ -47,107 +48,129 @@
       <!--<a class="f-fs-16 f-color-primary" href="/">云速</a>-->
       <!--</nav>-->
       <p class="f-fs-16 f-color-primary">智慧医院 | Hicare | 云医院 | Hifond | 云速 </p>
-      <img src="/images/logo-circle.png">
-      <img src="/images/doctor.png">
-      <img src="/images/patient.png">
-      <img src="/images/hospital.png">
+      <div>
+        <img id="logo-circle" src="/images/logo-circle.png" width="193">
+        <img id="patient" src="/images/patient.png" width="72.7">
+        <img id="doctor" src="/images/doctor.png" width="72.3">
+        <img id="hospital" src="/images/hospital.png" width="68.3">
+      </div>
     </div>
   </section>
   
-  <section class="intelligence f-color-primary">
+  <section id="intelligence" class="intelligence f-color-primary">
     <div class="g-container">
       <h2>智慧医院</h2>
       <p>就医如此便捷</p>
-      <div class="figure-wrap">
-        <figure class="m-figure">
-          <img class="m-figure__figure" src="/images/registration.png">
-          <figcaption class="m-figure__figure-cap">足不出户即可挂号</figcaption>
-        </figure>
-        <figure class="m-figure">
-          <img class="m-figure__figure" src="/images/outpatient-payment.png">
-          <figcaption class="m-figure__figure-cap">门诊缴费一键支付</figcaption>
-        </figure>
-        <figure class="m-figure">
-          <img class="m-figure__figure" src="/images/report-queries.png">
-          <figcaption class="m-figure__figure-cap">检查报告在线查询</figcaption>
-        </figure>
+      <div class="figure-wrap g-row">
+        
+        <div class="g-cell">
+          <figure class="m-figure">
+            <img class="m-figure__figure" src="/images/registration.png">
+            <figcaption class="m-figure__figure-cap">足不出户即可挂号</figcaption>
+          </figure>
+        </div>
+        <div class="g-cell">
+          <figure class="m-figure">
+            <img class="m-figure__figure" src="/images/outpatient-payment.png">
+            <figcaption class="m-figure__figure-cap">门诊缴费一键支付</figcaption>
+          </figure>
+        </div>
+        <div class="g-cell">
+          <figure class="m-figure">
+            <img class="m-figure__figure" src="/images/report-queries.png">
+            <figcaption class="m-figure__figure-cap">检查报告在线查询</figcaption>
+          </figure>
+        </div>
+      
       </div>
-      <a class="u-link-arrow" href="#">了解更多</a>
-      <img src="/images/video.png">
+      <div class="link-wrap">
+        <a class="u-link-arrow" href="#">了解更多</a>
+      </div>
+      <img id="video" src="/images/video.png" width="600">
     </div>
   </section>
   
-  <section class="hicare f-color-primary">
+  <section id="hicare" class="hicare f-color-primary">
     <div class="g-container">
       <h2>Hicare</h2>
       <p>用心服务，让健康更近一步</p>
       <p class="f-fs-16 f-color-primary">Hicare平台是结合可穿戴硬件设备，基于医院微信服务号（患者端）与企业端（医生端）搭建的旨在可随时随地连接医生与患者的管理平台。</p>
-      <a class="u-link-arrow" href="#">了解更多</a>
-      <img src="/images/grid-lines.png">
-      <img src="/images/blood-pressure2.png">
-      <img src="/images/blood-pressure1.png" alt="血压">
-      <img src="/images/blood-sugar.png" alt="血糖">
-      <img src="/images/heart-rate1.png" alt="心率">
-      <img src="/images/heart-rate2.png">
-      <img src="/images/doctor-pad.png">
+      <div class="link-wrap">
+        <a class="u-link-arrow" href="#">了解更多</a>
+      </div>
+      <img id="grid-lines" src="/images/grid-lines.png" width="668">
+      <img id="blood-pressure2" src="/images/blood-pressure2.png" width="60">
+      <img id="blood-pressure1" src="/images/blood-pressure1.png" alt="血压" width="91">
+      <img id="blood-sugar" src="/images/blood-sugar.png" alt="血糖" width="90">
+      <img id="heart-rate1" src="/images/heart-rate1.png" alt="心率" width="91">
+      <img id="heart-rate2" src="/images/heart-rate2.png" width="70">
+      <img id="doctor-pad" src="/images/doctor-pad.png" width="662">
     </div>
   </section>
   
-  <section class="cloud f-color-primary">
+  <section id="cloud" class="cloud f-color-primary">
     <div class="g-container">
       <h2>云医院</h2>
       <p>信息医院，执掌办公</p>
-      <ul>
-        <li>简化医院管理</li>
-        <li>加速信息传递</li>
-        <li>高效连接一切</li>
-      </ul>
-      <a class="u-link-arrow" href="#">了解更多</a>
-      <img src="/images/pad.png">
-      <img src="/images/circle.png">
-      <img src="/images/circles.png">
-      <img src="/images/notice.png" alt="院内通知">
-      <img src="/images/daily-paper.png" alt="院长日报">
-      <img src="/images/connection.png" alt="高效连接">
-      <img src="/images/meeting-assistant.png" alt="会议助手">
-      <img src="/images/consultation.png" alt="在线咨询">
+      <div class="para-wrap">
+        <p>简化医院管理<span class="punctuation">，</span></p>
+        <p>加速信息传递<span class="punctuation">，</span></p>
+        <p>高效连接一切<span class="punctuation">。</span></p>
+      </div>
+      <div class="link-wrap">
+        <a class="u-link-arrow" href="#">了解更多</a>
+      </div>
+      <img id="pad" src="/images/pad.png" width="500">
+      <img id="circle" src="/images/circle.png" width="23">
+      <img id="circles" src="/images/circles.png" width="129">
+      <img id="notice" src="/images/notice.png" alt="院内通知" width="91">
+      <img id="daily-paper" src="/images/daily-paper.png" alt="院长日报" width="91">
+      <img id="connection" src="/images/connection.png" alt="高效连接" width="87">
+      <img id="meeting-assistant" src="/images/meeting-assistant.png" alt="会议助手" width="77">
+      <img id="consultation" src="/images/consultation.png" alt="在线咨询" width="75">
     </div>
   </section>
   
-  <section class="hifond f-color-primary">
+  <section id="hifond" class="hifond f-color-primary">
     <div class="g-container">
       <h2>Hifond</h2>
       <p>微小连接医疗</p>
-      <ul>
-        <li>一体集成，多卡支持</li>
-        <li>医保支付，即时报销</li>
-        <li>多行业场景的快速通道</li>
-        <li>医护考勤，会议智能管理</li>
-        <li>设备远程管理化</li>
-      </ul>
-      <a class="u-link-arrow" href="#">了解更多</a>
-      <img src="/images/hifond1.png">
-      <img src="/images/hifond2.png">
+      <div class="para-wrap">
+        <p>一体集成，多卡支持<span class="punctuation">；</span></p>
+        <p>医保支付，即时报销<span class="punctuation">；</span></p>
+        <p>多行业场景的快速通道<span class="punctuation">；</span></p>
+        <p>医护考勤，会议智能管理<span class="punctuation">；</span></p>
+        <p>设备远程管理化<span class="punctuation">。</span></p>
+      </div>
+      <div class="link-wrap">
+        <a class="u-link-arrow" href="#">了解更多</a>
+      </div>
+      <div class="f-tac">
+        <img id="hifond1" src="/images/hifond1.png" width="434">
+        <img id="hifond2" src="/images/hifond2.png" width="142">
+      </div>
     </div>
   </section>
   
-  <section class="speed f-color-primary">
+  <section id="speed" class="speed f-color-primary">
     <div class="g-container">
       <h2>云速</h2>
       <p>让消费者成为会员</p>
-      <ul>
-        <li>真实内部人员管理，节省管理成本</li>
-        <li>随时随地，资金流水一手掌握</li>
-        <li>不止于收银，客户关系维护利器</li>
-        <li>丰富的卡券／会员管理，营销精准化</li>
-      </ul>
-      <p class="f-fs-16">为私立医疗机构提供收款为基础的会员管理体系，配套运营整体解决方案。</p>
-      <a class="u-link-arrow" href="#">了解更多</a>
-      <img src="/images/cloud-collection.png">
-      <img src="/images/coupon.png" alt="卡券">
-      <img src="/images/member.png" alt="会员">
-      <img src="/images/collection.png" alt="收款">
-      <img src="/images/payment-code.png" alt="付款码">
+      <div class="para-wrap">
+        <p>商户内部人员管理，节省管理成本<span class="punctuation">；</span></p>
+        <p>随时随地，资金流水一手掌握<span class="punctuation">；</span></p>
+        <p>不止于收银，客户关系维护利器<span class="punctuation">；</span></p>
+        <p>丰富的卡券／会员管理，营销精准化<span class="punctuation">。</span></p>
+      </div>
+      <p>为私立医疗机构提供收款为基础的会员管理体系，配套运营整体解决方案。</p>
+      <div class="link-wrap">
+        <a class="u-link-arrow" href="#">了解更多</a>
+      </div>
+      <img id="cloud-collection" src="/images/cloud-collection.png" width="777">
+      <img id="coupon" src="/images/coupon.png" alt="卡券" width="91">
+      <img id="member" src="/images/member.png" alt="会员" width="91">
+      <img id="collection" src="/images/collection.png" alt="收款" width="91">
+      <img id="payment-code" src="/images/payment-code.png" alt="付款码" width="91">
     </div>
   </section>
   
@@ -155,12 +178,12 @@
     <div class="g-container">
       <p>如果您已经对我们足够了解，您可以选择</p>
       <div>
-        <a class="btn btn-info" href="#">商务合作</a>
-        <a class="btn btn-info" href="#">加入我们</a>
+        <a class="u-btn u-btn-info" href="#">商务合作</a>
+        <a class="u-btn u-btn-info" href="#">加入我们</a>
       </div>
       <p>或者，您也可以感受</p>
       <div>
-        <a class="btn btn-info" href="#">海鹚，让医疗更温暖</a>
+        <a class="u-btn u-btn-info" href="#">海鹚，让医疗更温暖</a>
       </div>
     </div>
   </section>
@@ -226,7 +249,7 @@
   </div>
 </footer>
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/js/init.js"></script>
+<script src="/js/index.js"></script>
 </body>
 </html>
