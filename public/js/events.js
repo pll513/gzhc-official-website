@@ -1,42 +1,4 @@
 (function (w, d) {
-  // 事件 绑定/解除 函数
-  var addListener, removeListener;
-  if (typeof addEventListener === 'function') {
-    addListener = function (el, type, fn) {
-      el.addEventListener(type, fn, false);
-    };
-    removeListener = function (el, type, fn) {
-      el.removeEventListener(type, fn, false);
-    };
-  } else if (typeof attachEvent === 'function') {
-    addListener = function (el, type, fn) {
-      el.attachEvent('on' + type, fn);
-    };
-    removeListener = function (el, type, fn) {
-      el.detachEvent('on' + type, fn);
-    }
-  } else {
-    addListener = function (el, type, fn) {
-      el['on' + type] = fn;
-    };
-    removeListener = function (el, type) {
-      el['on' + type] = null;
-    };
-  }
-  
-  // 解决 IE8 String类型没有indexOf方法的问题
-  if (!String.prototype.indexOf) {
-    String.prototype.indexOf = function (str) {
-      var len1 = this.length,
-        len2 = str.length,
-        i;
-      if (!(len1 && len2)) return -1;
-      for (i = 0; i < len1; ++i) {
-        if (this.slice(i, i + len2) === str) return i;
-      }
-      return -1;
-    }
-  }
   
   var ITEM_WIDTH = 356,
     THREE_ITEM_WIDTH = 1068,
@@ -82,7 +44,7 @@
   sliderWrap.style.width = SLIDER_WIDTH + 'px';
   
   // 点击左箭头向右滑一页
-  addListener(arrowLeft, 'click', function () {
+  M.addListener(arrowLeft, 'click', function () {
     if (isSliding) return;
     var originLeft = parseFloat(sliderWrap.style.left) || 0,
       // newLeft = (Math.floor(originLeft / THREE_ITEM_WIDTH) + 1) * THREE_ITEM_WIDTH;
@@ -92,7 +54,7 @@
   });
   
   // 点击右箭头向左滑一页
-  addListener(arrowRight, 'click', function () {
+  M.addListener(arrowRight, 'click', function () {
     if (isSliding) return;
     var originLeft = parseFloat(sliderWrap.style.left || 0),
       // newLeft = (Math.ceil(originLeft / THREE_ITEM_WIDTH) - 1) * THREE_ITEM_WIDTH;
@@ -102,7 +64,7 @@
   });
   
   // 实践委托 点击指定年份滑动到对应年份的第一个
-  addListener(buttonWrap, 'click', function (e) {
+  M.addListener(buttonWrap, 'click', function (e) {
     var event = e || w.event,
       target = event.target || event.srcElement;
     if (target.tagName === 'BUTTON') {

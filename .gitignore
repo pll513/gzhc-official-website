@@ -1,10 +1,8 @@
 .gitignore
 .idea/*
 node_modules/*
-bootstrap/node_modules/*
-/*.html
-views/*/css/*.less
-views/*/css/*.sass
-views/*/css/*.scss
+bootstrap/*
 public/css/*.css
 common/css/*.css
+!common/css/common/normalize.css
+common/css/*/*.css
