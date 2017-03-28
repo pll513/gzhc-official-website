@@ -34,6 +34,9 @@ hr {
 body {
   min-width: 1200px;
 }
+.main {
+  overflow: hidden;
+}
 .g-container {
   position: relative !important;
   width: 1200px;
@@ -1226,7 +1229,7 @@ body {
   top: 8px;
   left: 50px;
 }
-.header .logo-wrap img {
+.header .logo-wrap > img {
   width: 71.4px;
 }
 .header .nav {
@@ -1235,10 +1238,10 @@ body {
   right: 50px;
   padding: 0;
 }
-.header .nav > a {
+.header .nav > .u-link {
   margin-left: 62px;
 }
-.header .nav > a:first-child {
+.header .nav > .u-link:first-child {
   margin: 0;
 }
 .header .u-nav-toggle {
@@ -1249,6 +1252,19 @@ body {
 }
 .header .f-fs-24 {
   display: none;
+}
+#sub-nav {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  padding: 28px;
+  height: 76px;
+}
+#sub-nav > a {
+  color: #333;
+}
+#sub-nav > a:hover {
+  color: #4cb6ac;
 }
 .footer {
   position: relative;

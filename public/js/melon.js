@@ -153,3 +153,20 @@
   w.M = melon;
   
 })(window, document);
+
+
+(function (w, d) {
+  
+  var header = M.getElementsByClassName('header')[0],
+    product = M.getElementsByClassName('u-link', header)[0],
+    subNav = d.getElementById('sub-nav'),
+    subNavLinkList = subNav.getElementsByTagName('a');
+  
+  console.log(product);
+  
+  M.addListener(product, 'mouseenter', function () {
+    M.removeClass(subNav, 'f-none');
+    header.style.height = '136px';
+  });
+  
+})(window, document);

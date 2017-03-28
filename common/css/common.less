@@ -39,6 +39,10 @@ body {
   min-width: 1200px;
 }
 
+.main {
+  overflow: hidden;
+}
+
 .g-container {
   position: relative !important;
   width: 1200px;
@@ -1560,7 +1564,7 @@ body {
     position: absolute;
     top: 8px;
     left: 50px;
-    img {
+    > img {
       width: 71.4px;
     }
   }
@@ -1569,7 +1573,7 @@ body {
     top: 0;
     right: 50px;
     padding: 0;
-    > a {
+    > .u-link {
       margin-left: 62px;
       &:first-child {
         margin: 0;
@@ -1584,6 +1588,19 @@ body {
   }
   .f-fs-24 {
     display: none;
+  }
+}
+#sub-nav {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  padding: 28px;
+  height: 76px;
+  & > a {
+    color: @grey1;
+    &:hover {
+      color: @green1;
+    }
   }
 }
 

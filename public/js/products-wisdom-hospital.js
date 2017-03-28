@@ -1,6 +1,18 @@
+/**
+ * 这部分代码写得比较糟糕
+ * 抛开了把4个页面写在一起的客观选择导致的复杂性
+ * 许多变量名的选取比较纠结
+ * 为了提高DOM性能没有选择切换的时候删除节点而是选择隐藏节点
+ * 因此在做动效的时候额外保存了一些引用和状态
+ * 此后会考虑重写这部分代码
+ * 提高可读性
+ */
+
 (function (w, d) {
   
-  var IMAGE = {
+  var
+    IMG_WIDTH = 204,
+    IMAGE = {
       website: [
         '/images/products/website1.png',
         '/images/products/website2.png',
@@ -30,6 +42,12 @@
         '/images/products/service6.png',
         '/images/products/service7.png'
       ]
+    },
+    IMG_LEN = {
+      website: 4,
+      treatment: 3,
+      remind: 7,
+      service: 7
     },
     DATA = {
       website: [
@@ -157,26 +175,31 @@
       remind: [],
       service: []
     },
-    introData = {
+    introRef = {
       website: [],
       treatment: [],
       remind: [],
       service: []
     },
-    currentIndex = {
-      website: 0,
-      treatment: 0,
-      remind: 0,
-      service: 0
+    // 保存目录对应图片列表的引用（修改f-none样式的时候需要用到）
+    imgRef = {
+      website: [],
+      treatment: [],
+      remind: [],
+      service: []
     },
+    currentIndex = 0,
+    isSliding = false,
+    timerSlider = null,
+    timerAutoSwitch = null,
     
-    navLeft = d.getElementById('nav-left'), // 左边导航
-    imageSlider = d.getElementById('image-slider'), // 图片滑动容器
+    navLeft = d.getElementById('nav-left'),                   // 左边导航
+    imageSlider = d.getElementById('image-slider'),           // 图片滑动容器
     navBtnList = M.getElementsByClassName('u-btn', navLeft),  // 左边导航按钮
-    intro = d.getElementById('intro'),      // 右边文字包含块
-    currentCategory = 'website',  // 当前目录
-    introList // 右侧文字介绍列表
-    ;
+    intro = d.getElementById('intro'),                        // 右边文字包含块
+    lenIntroList,
+    currentCategory = 'website';                              // 当前目录
+  
   
   M.addListener(navLeft, 'click', function (e) {
     var event = e || w.event,
@@ -189,6 +212,8 @@
       // 如果[点击目录]不同于[当前目录]就切换
       if (targetCategory != currentCategory) {
         // 改变左侧样式
+        destory();
+        
         M.removeClass(navBtnList[CATE_INDEX[currentCategory]], 'active');
         M.addClass(navBtnList[CATE_INDEX[targetCategory]], 'active');
         currentCategory = targetCategory;
@@ -196,34 +221,71 @@
         // 刷新图片 和 右侧DOM中的数据
         refreshImage(targetCategory);
         refreshIntro(targetCategory);
+        
+        init();
       }
     }
     
   });
   
   // 虽然绑定mouseover会触发多次，但是mouseenter是不能委托成功的
-  M.addListener(intro, 'mouseover', function (e) {
-    var event = e || w.event,
-      target = event.target || event.srcElement,
-      targetId;
-    // console.log('hahahah');
-    if (M.containClass(target, 'f-pdtb-20')) {
-      targetId = target.className.split(/\s/)[0];
-      if (targetId != currentIndex[currentCategory]) {
-        // 如果移到一个新index上 执行一系列动作
-        
-        // 切换当前激活的块
-        toggleActiveIntro(targetId);
-        
-        
-      }
-    }
-  });
+  // M.addListener(intro, 'mouseover', function (e) {
+  //   var event = e || w.event,
+  //     target = event.target || event.srcElement,
+  //     targetId;
+  //   if (M.containClass(target, 'f-pdtb-20')) {
+  //
+  //     timerAutoSwitch && clearTimeout(timerAutoSwitch);
+  //
+  //     targetId = target.className.split(/\s/)[0];
+  //     if (targetId != currentIndex) {
+  //       // 如果移到一个新index上 执行一系列动作
+  //
+  //       // 切换当前激活的块
+  //       toggleActiveIntro(targetId);
+  //
+  //
+  //     }
+  //   }
+  // });
   
   
   // 首先 website category下的内容已经加载过了
-  introData.website = introListMap.website = Array.prototype.slice.call(M.getElementsByClassName('f-pdtb-20', intro));
+  introListMap.website = Array.prototype.slice.call(M.getElementsByClassName('f-pdtb-20', intro));
+  introRef.website = Array.prototype.slice.call(M.getElementsByClassName('f-pdtb-20', intro));
   introListMap.website.push(M.getElementsByClassName('f-color-info', intro)[0]);
+  imgRef.website = Array.prototype.slice.call(imageSlider.getElementsByTagName('img'));
+  
+  init();
+  
+  
+  function bindEvent() {
+    for (var i = 0; i < lenIntroList; ++i) {
+      (function (i) {
+        M.addListener(introRef[currentCategory][i], 'mouseenter', function (e) {
+          
+          timerAutoSwitch && clearTimeout(timerAutoSwitch);
+          
+          if (i != currentIndex) {
+            // 如果移到一个新index上 执行一系列动作
+            
+            // 切换当前激活的块
+            toggleActiveIntro(i);
+            animateLeft(imageSlider, computeNewLeft(currentIndex), 340);
+            
+          }
+          
+        });
+        M.addListener(introRef[currentCategory][i], 'mouseleave', function (e) {
+          
+          console.log('hahahaha');
+          autoSwitch();
+          
+        });
+      })(i);
+    }
+  }
+  
   
   // 改变数据
   function refreshIntro(category) {
@@ -282,7 +344,7 @@
         
         // 把当前目录的引用保存到introListMap对象中
         introListMap[category].push(introItemHtml);
-        introData[category].push(introItemHtml);
+        introRef[category].push(introItemHtml);
       }
       
       // 其他介绍
@@ -293,7 +355,6 @@
       
       introListMap[category].push(introExtraHtml);
       
-      // console.log(introListMap);
       
       // 把所有元素设置为隐藏
       hideIntro();
@@ -309,30 +370,44 @@
   function refreshImage(category) {
     var imgFrag,
       imgHtml,
-      i, len;
+      i, len,
+      imgList;
     
     if (imgLoaded[category]) {
-      
+      imgList = imgRef[category];
       // 图片已经加载过了
-      
-    } else {
-      imgFrag = d.createDocumentFragment();
-      
-      for (i = 0, len = IMAGE.length; i < len; ++i) {
-        imgHtml = d.createElement('img');
-        imgHtml.setAttribute('width', '204');
-        imgHtml.setAttribute('height', '362.8');
-        imgHtml.setAttribute('src', IMAGE[i]);
+      hideImg();
+      for (i = 0, len = imgList.length; i < len; ++i) {
+        M.removeClass(imgList[i], 'f-none');
       }
+      imageSlider.style.width = len * IMG_WIDTH + 'px';
+      imageSlider.style.left = 0;
+    } else {
       
-      imageSlider.style.width = len * 204;
+      // 图片还没加载
+      
+      imgFrag = d.createDocumentFragment();
+      imgList = IMAGE[category];
+      
+      for (i = 0, len = imgList.length; i < len; ++i) {
+        imgHtml = d.createElement('img');
+        imgHtml.setAttribute('width', IMG_WIDTH + '');
+        imgHtml.setAttribute('height', '362.8');
+        imgHtml.setAttribute('src', imgList[i]);
+        imgFrag.appendChild(imgHtml);
+        imgRef[category].push(imgHtml);
+      }
+      imageSlider.style.width = len * IMG_WIDTH + 'px';
+      hideImg();
       imageSlider.appendChild(imgFrag);
+      imgLoaded[category] = true;
       
       
     }
     
   }
   
+  // 隐藏所有已加载的文字介绍（右边）
   function hideIntro() {
     var introListDOM = M.getElementsByClassName('f-pdtb-20', intro),
       introExtraListDOM = M.getElementsByClassName('f-color-info', intro),
@@ -347,18 +422,98 @@
     }
   }
   
+  // 隐藏所有已加载的图片（手机里）
+  function hideImg() {
+    var imgList = imageSlider.getElementsByTagName('img'),
+      i, len;
+    for (i = 0, len = imgList.length; i < len; ++i) {
+      M.addClass(imgList[i], 'f-none');
+    }
+  }
+  
+  // 切换当前被选中的介绍块（右边的一项）*** 实在想不出【介绍块】外的叫法
   function toggleActiveIntro(newIndex) {
-    console.log('toggleActiveIntro');
-    var introDataTmp = introData[currentCategory];
-    // console.log(introDataTmp[currentIndex[currentCategory]]);
-    // console.log(introDataTmp);
-    // console.log(currentIndex[currentCategory]);
-    M.removeClass(introDataTmp[currentIndex[currentCategory]], 'active');
-    currentIndex[currentCategory] = parseInt(newIndex);
-    // console.log(introDataTmp[currentIndex[currentCategory]]);
-    // console.log(introDataTmp);
-    // console.log(currentIndex[currentCategory]);
-    M.addClass(introDataTmp[currentIndex[currentCategory]], 'active');
+    console.log('toggleActiveIntro()');
+    var introRefTmp = introRef[currentCategory];
+    M.removeClass(introRefTmp[currentIndex], 'active');
+    currentIndex = parseInt(newIndex);
+    M.addClass(introRefTmp[currentIndex], 'active');
+  }
+  
+  
+  function destory() {
+    timerSlider && clearTimeout(timerSlider);
+    timerAutoSwitch && clearTimeout(timerAutoSwitch);
+    for (var i = 0; i < lenIntroList; ++i) {
+      M.removeClass(introRef[currentCategory][i], 'active');
+    }
+  }
+  
+  // 刚进页面时／切换标签时的初始化工作
+  function init() {
+    console.log('init()');
+    currentIndex = 0;
+    isSliding = false;
+    lenIntroList = introRef[currentCategory].length;
+    M.addClass(introRef[currentCategory][currentIndex], 'active');
+    bindEvent();
+    autoSwitch();
+  }
+  
+  function autoSwitch() {
+    
+    timerAutoSwitch && clearTimeout(timerAutoSwitch);
+    
+    timerAutoSwitch = setTimeout(switchStep, 3000);
+  }
+  
+  function switchStep() {
+    toggleActiveIntro((currentIndex + 1) % lenIntroList);
+    animateLeft(imageSlider, computeNewLeft(currentIndex), 340);
+    timerAutoSwitch = setTimeout(switchStep, 3000);
+  }
+  
+  function slideimage() {
+    
+  }
+  
+  function computeNewLeft(index) {
+    return - index * IMG_WIDTH;
+  }
+  
+  function animateLeft(ele, newLeft, duration) {
+    var INTERVAL = 17,
+      oldLeft = parseFloat(ele.style.left) || 0,
+      count = duration / INTERVAL,
+      move,
+      step = (newLeft - oldLeft) / count;
+    
+    isSliding = true;
+    
+    if (step < 0) {
+      move = function () {
+        if (oldLeft + step <= newLeft) {
+          ele.style.left = (oldLeft = newLeft) + 'px';
+          isSliding = false;
+          clearTimeout(timerSlider);
+        } else {
+          ele.style.left = (oldLeft += step) + 'px';
+          timerSlider = setTimeout(move, INTERVAL);
+        }
+      };
+    } else {
+      move = function () {
+        if (oldLeft + step >= newLeft) {
+          ele.style.left = (oldLeft = newLeft) + 'px';
+          isSliding = false;
+          clearTimeout(timerSlider);
+        } else {
+          ele.style.left = (oldLeft += step) + 'px';
+          timerSlider = setTimeout(move, INTERVAL);
+        }
+      };
+    }
+    move();
   }
   
   
