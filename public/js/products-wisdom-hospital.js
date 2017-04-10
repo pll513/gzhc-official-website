@@ -271,6 +271,7 @@
             
             // 切换当前激活的块
             toggleActiveIntro(i);
+            clearTimeout(timerSlider);
             animateLeft(imageSlider, computeNewLeft(currentIndex), 340);
             
           }
@@ -278,7 +279,6 @@
         });
         M.addListener(introRef[currentCategory][i], 'mouseleave', function (e) {
           
-          console.log('hahahaha');
           autoSwitch();
           
         });
@@ -380,8 +380,6 @@
       for (i = 0, len = imgList.length; i < len; ++i) {
         M.removeClass(imgList[i], 'f-none');
       }
-      imageSlider.style.width = len * IMG_WIDTH + 'px';
-      imageSlider.style.left = 0;
     } else {
       
       // 图片还没加载
@@ -404,6 +402,9 @@
       
       
     }
+  
+    imageSlider.style.width = len * IMG_WIDTH + 'px';
+    imageSlider.style.left = 0;
     
   }
   

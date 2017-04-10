@@ -172,6 +172,7 @@ body {
   content: "";
 }
 .u-link:hover {
+  cursor: pointer;
   color: #4cb6ac;
 }
 .u-link-arrow {
@@ -1237,12 +1238,18 @@ body {
   top: 0;
   right: 50px;
   padding: 0;
+  font-size: 0;
 }
-.header .nav > .u-link {
+.header .nav .nav-item {
+  display: inline-block;
   margin-left: 62px;
 }
-.header .nav > .u-link:first-child {
+.header .nav .nav-item:first-child {
   margin: 0;
+  position: relative;
+}
+.header .nav .u-link {
+  display: block;
 }
 .header .u-nav-toggle {
   display: none;
@@ -1256,14 +1263,20 @@ body {
 #sub-nav {
   position: absolute;
   top: 60px;
-  left: 10px;
-  padding: 28px;
+  left: 0;
+  padding: 28px 0;
+  width: 508px;
   height: 76px;
+  overflow: visible;
 }
-#sub-nav > a {
+#sub-nav > .sub-nav__link {
+  display: inline-block;
+  line-height: 20px;
+  font-size: 14px;
   color: #333;
+  margin-left: 75px;
 }
-#sub-nav > a:hover {
+#sub-nav > .sub-nav__link:hover {
   color: #4cb6ac;
 }
 .footer {

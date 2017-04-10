@@ -14,8 +14,8 @@
 
 <header class="header">
   <div class="g-container">
-    <div class="navbar-header">
-      <img src="/images/logo.png" alt="首页">
+    <div>
+      <a class="logo-wrap" href="/"><img src="/images/logo.png" alt="首页"></a>
       <span class="f-fs-24 f-color-primary">广州海鹚网络科技有限公司</span>
       <button type="button" class="u-nav-toggle">
         <span class="u-nav-toggle__bar"></span>
@@ -24,24 +24,25 @@
       </button>
     </div>
     <nav class="nav">
-      <a class="u-link" href="/">产品与服务</a>
-      <a class="u-link" href="/cooperative-patterns">合作案例</a>
-      <a class="u-link active" href="/introduction">走进海鹚</a>
-      <a class="u-link" href="/">加入我们</a>
+      <ul>
+        <li class="nav-item">
+          <span class="u-link">产品与服务</span>
+          <nav id="sub-nav" class="f-none">
+            <a class="sub-nav__link" href="/products/wisdom-hospital">智慧医院</a>
+            <a class="sub-nav__link" href="/products/wisdom-hospital">Hicare</a>
+            <a class="sub-nav__link" href="/products/wisdom-hospital">云医院</a>
+            <a class="sub-nav__link" href="/products/wisdom-hospital">Hifond</a>
+            <a class="sub-nav__link" href="/products/wisdom-hospital">云速</a>
+          </nav>
+        </li>
+        <li class="nav-item"><a class="u-link" href="/cooperation/wisdom-hospital">合作案例</a></li>
+        <li class="nav-item"><a class="u-link active" href="/introduction">走进海鹚</a></li>
+        <li class="nav-item"><a class="u-link" href="/join">加入我们</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-<header class="banner">
-  <div class="g-container">
-    <img src="/images/logo.png" alt="Haici 让医疗更温暖">
-    <nav class="nav">
-      <a class="u-btn active" href="javascript:void(0);">海鹚介绍</a>
-      <a class="u-btn" href="/introduction/events">海鹚大事记</a>
-      <a class="u-btn" href="/introduction/group">团队风采</a>
-    </nav>
-  </div>
-</header>
 
 <main class="main">
   <div class="g-container">
@@ -114,5 +115,6 @@
   </div>
 </footer>
 
+<script src="/js/melon.js"></script>
 </body>
 </html>
